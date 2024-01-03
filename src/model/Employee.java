@@ -1,22 +1,32 @@
 package model;
 
-import java.util.Date;
+import model.Utility.ValidationUtil;
+
+import java.time.LocalDate;
 
 public abstract class Employee {
     private String name;
-    private Date birthDate;
+    private String surname;
+    private LocalDate birthDate;
     private String phoneNumber;
     private String email;
     private double salary;
     private AccessLevel accessLevel;
 
-    public Employee(String name, Date birthDate, String phoneNumber, String email, double salary, AccessLevel accessLevel) {
-        this.name = name;
+    public Employee(String name, String surname, LocalDate birthDate, String phoneNumber, double salary, AccessLevel accessLevel) {
+        if(ValidationUtil.isValid(name, ValidationUtil.STRING_REGEX))
+            this.name = name;
+        if(ValidationUtil.isValid(name, ValidationUtil.STRING_REGEX))
+            this.surname = surname;
         this.birthDate = birthDate;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
+        if (ValidationUtil.isValid(phoneNumber, ValidationUtil.PHONE_REGEX))
+            this.phoneNumber = phoneNumber;
+        this.email = name.toLowerCase() + "." + surname.toLowerCase() + "@bookstore.com";
         this.salary = salary;
         this.accessLevel = accessLevel;
+    }
+
+    public Employee() {
     }
 
     public String getName() {
@@ -27,11 +37,11 @@ public abstract class Employee {
         this.name = name;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -43,12 +53,20 @@ public abstract class Employee {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String name, String surname) {
+        this.email = name + "." + surname + "@bookstore.com";
     }
 
     public double getSalary() {
@@ -65,5 +83,17 @@ public abstract class Employee {
 
     public void setAccessLevel(AccessLevel accessLevel) {
         this.accessLevel = accessLevel;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee data \n" +
+                "name: " + name + '\n' +
+                "surname: " + surname + '\n' +
+                "birthDate: " + birthDate + '\n' +
+                "phoneNumber: " + phoneNumber + '\n' +
+                "email: " + email + '\n' +
+                "salary: " + salary + '\n' +
+                "accessLevel: " + accessLevel;
     }
 }
