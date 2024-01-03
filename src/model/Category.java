@@ -1,12 +1,13 @@
 package model;
 
+import model.Utility.ValidationUtil;
+
 public class Category {
     private String name;
 
     public Category(String name) {
-        if(name == null || name.trim().isEmpty())
-            throw new IllegalArgumentException("This field cannot be empty!");
-        this.name = name;
+        if(ValidationUtil.isValid(name, ValidationUtil.STRING_REGEX))
+            this.name = name;
     }
 
     public String getName() {
@@ -14,9 +15,8 @@ public class Category {
     }
 
     public void setName(String name) {
-        if(name == null || name.trim().isEmpty())
-            throw new IllegalArgumentException("This field cannot be empty!");
-        this.name = name;
+        if(ValidationUtil.isValid(name, ValidationUtil.STRING_REGEX))
+            this.name = name;
     }
 
     @Override

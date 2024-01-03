@@ -1,5 +1,7 @@
 package model;
 
+import model.Utility.ValidationUtil;
+
 import java.time.Year;
 import java.time.LocalDate;
 
@@ -16,24 +18,22 @@ public class Book {
     private double sellingPrice;
     private Author author;
     private int stockNo;
-    private static final String ISBN_13_REGEX = "^(978|979)-\\d{1,5}-\\d{1,7}-\\d{1,7}-\\d{1,7}-\\d$";
-    private static final String STRING_REGEX = "^[\\p{L}\\s'.-]+$"; //must consist only of Unicode letters, whitespaces, single quotes, periods, or hyphens
 
     public Book(String ISBN, String title, Category category, String supplierName, Year publishYear, double purchasedPrice, double originalPrice, double sellingPrice, Author author, int stockNo) {
-       if(isValid(ISBN, ISBN_13_REGEX))
+       if(ValidationUtil.isValid(ISBN, ValidationUtil.ISBN_13_REGEX))
             this.ISBN = ISBN;
-        if(isValid(title, STRING_REGEX))
+        if(ValidationUtil.isValid(title, ValidationUtil.BOOK_TITLE_REGEX))
             this.title = title;
-        if(isValid(category.getName(), STRING_REGEX))
+        if(ValidationUtil.isValid(category.getName(), ValidationUtil.STRING_REGEX))
             this.category = category;
-        if(isValid(supplierName, STRING_REGEX))
+        if(ValidationUtil.isValid(supplierName, ValidationUtil.STRING_REGEX))
             this.supplierName = supplierName;
         this.publishYear = publishYear;
         this.purchasedDate =  LocalDate.now();
         this.purchasedPrice = purchasedPrice;
         this.originalPrice = originalPrice;
         this.sellingPrice = sellingPrice;
-        if(isValid(author.toString(), STRING_REGEX))
+        if(ValidationUtil.isValid(author.toString(), ValidationUtil.STRING_REGEX))
             this.author = author;
         this.stockNo = stockNo;
     }
@@ -91,7 +91,7 @@ public class Book {
     }
 
     public void setISBN(String ISBN) {
-        if(isValid(ISBN, ISBN_13_REGEX))
+        if(ValidationUtil.isValid(ISBN, ValidationUtil.ISBN_13_REGEX))
             this.ISBN = ISBN;
     }
 
@@ -128,15 +128,5 @@ public class Book {
                 "sellingPrice: " + sellingPrice + '\n' +
                 "author: " + author + '\n' +
                 "stockNo: " + stockNo ;
-    }
-
-    //method for validating string fields
-    public static boolean isValid(String field, String regEx){
-        if(field == null || field.trim().isEmpty()){
-            throw new IllegalArgumentException("This field cannot be empty!");
-        } else if (!(field.matches(regEx))){
-            throw new IllegalArgumentException("The format of this field is incorrect!");
-        }
-        return true;
     }
 }
