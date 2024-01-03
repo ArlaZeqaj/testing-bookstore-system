@@ -12,14 +12,14 @@ public class Main {
         Employee employee = new Librarian("John", null, "1234567890", "john@example.com", 50000, AccessLevel.SIMPLE);
 
         List<Book> books = new BookList().getBooks(); //get list of books from BookList
-        SearchBook searchBook = new SearchBook();
+        SearchBook searchBook = new SearchBook(scanner); // Pass the scanner to the SearchBook
 
         searchBook.displaySearchOptions();
         int searchChoice = scanner.nextInt();
         scanner.nextLine();
 
         if (searchChoice == 1) {
-            searchBook.searchByTitle(scanner, employee, books);
+            searchBook.searchByTitle(employee, books);
         } else {
             System.out.println("Invalid choice.");
         }

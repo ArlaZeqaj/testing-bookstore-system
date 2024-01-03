@@ -20,7 +20,6 @@ public abstract class Employee {
     }
 
     public Employee() {
-
     }
 
     public String getName() {

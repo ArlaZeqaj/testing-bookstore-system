@@ -1,4 +1,4 @@
-package main;
+package model;
 
 import model.AccessLevel;
 import model.Employee;

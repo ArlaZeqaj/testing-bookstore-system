@@ -1,5 +1,7 @@
 package model;
 
+//secureRandom generates secure random numbers, with a lower chance of repeating compared to math random
+import java.security.SecureRandom;
 import java.util.Date;
 
 public class Bill {
@@ -8,8 +10,9 @@ public class Bill {
     private Date purchaseDate;
     private final double totalCost;
 
-    public Bill(String billNo, BillUnit[] books, Date purchaseDate, double totalCost) {
-        this.billNo = billNo;
+
+    public Bill(BillUnit[] books, Date purchaseDate, double totalCost) {
+        this.billNo = generateRandomBillNumber(12); //generates a 9-character bill number
         this.books = books;
         this.purchaseDate = new Date();
         this.totalCost = calculateTotalCost(); //calculate by adding cost all bill units
@@ -45,6 +48,19 @@ public class Bill {
             total += unit.getUnitPrice();
         }
         return total;
+    }
+    private static final String ALLOWED_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    public static String generateRandomBillNumber(int length) {
+        SecureRandom random = new SecureRandom();
+        StringBuilder stringBuilder = new StringBuilder(length);
+
+        for (int i = 0; i < length; i++) {
+            int randomIndex = random.nextInt(ALLOWED_CHARACTERS.length());
+            stringBuilder.append(ALLOWED_CHARACTERS.charAt(randomIndex));
+        }
+
+        return stringBuilder.toString();
     }
 
     public double getTotalCost() {
