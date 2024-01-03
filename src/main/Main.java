@@ -1,15 +1,27 @@
 package main;
-import model.Book;
-import model.Author;
-import model.Category;
 
-import java.time.Year;
+import model.*;
+
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //testing the creation of Book objects
-        Book book1 = new Book("978-0-12345-0123456-7-0", "The Secret History", new Category("Mystery"), "Penguin Books", Year.of(2018), 12.5, 18.0, 16.5, new Author("Donna", "", "Tartt"), 27);
-        System.out.println(book1);
+        Scanner scanner = new Scanner(System.in);
 
+        Employee employee = new Librarian("John", null, "1234567890", "john@example.com", 50000, AccessLevel.SIMPLE);
+
+        List<Book> books = new BookList().getBooks(); //get list of books from BookList
+        SearchBook searchBook = new SearchBook();
+
+        searchBook.displaySearchOptions();
+        int searchChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        if (searchChoice == 1) {
+            searchBook.searchByTitle(scanner, employee, books);
+        } else {
+            System.out.println("Invalid choice.");
+        }
     }
 }

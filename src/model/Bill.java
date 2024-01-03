@@ -6,13 +6,13 @@ public class Bill {
     private String billNo;
     private BillUnit[] books;
     private Date purchaseDate;
-    private double totalCost;
+    private final double totalCost;
 
     public Bill(String billNo, BillUnit[] books, Date purchaseDate, double totalCost) {
         this.billNo = billNo;
         this.books = books;
         this.purchaseDate = new Date();
-        this.totalCost = totalCost; //calculate by adding cost all bill units
+        this.totalCost = calculateTotalCost(); //calculate by adding cost all bill units
     }
 
     public String getBillNo() {
@@ -38,11 +38,16 @@ public class Bill {
     public void setPurchaseDate(Date purchaseDate) {
         this.purchaseDate = purchaseDate;
     }
-    public double getTotalCost() {
-        return totalCost;
+
+    private double calculateTotalCost() {
+        double total = 0.0;
+        for (BillUnit unit : books) {
+            total += unit.getUnitPrice();
+        }
+        return total;
     }
 
-    public void setTotalCost(double totalCost) {
-        this.totalCost = totalCost;
+    public double getTotalCost() {
+        return totalCost;
     }
 }

@@ -19,6 +19,10 @@ public abstract class Employee {
         this.accessLevel = accessLevel;
     }
 
+    public Employee() {
+
+    }
+
     public String getName() {
         return name;
     }
