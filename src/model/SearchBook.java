@@ -61,6 +61,13 @@ public class SearchBook {
                     System.out.println("Amount: " + billUnit.getAmount());
                     System.out.println("Price: " + billUnit.getBook().getSellingPrice());
                     System.out.println("Total Cost: " + bill.getTotalCost());
+
+                    System.out.println("\nBook details for " + selectedBook.getTitle() + ":");
+                    System.out.println("Book Title: " + selectedBook.getTitle());
+                    System.out.println("Author: " + selectedBook.getAuthor());
+                    System.out.println("ISBN: " + selectedBook.getISBN());
+                    System.out.println("Selling Price: " + selectedBook.getSellingPrice());
+                    System.out.println("Stock No: " + selectedBook.getStockNo());
                 } else {
                     System.out.println("You don't have access.");
                 }
