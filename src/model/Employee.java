@@ -26,7 +26,7 @@ public abstract class Employee {
         this.accessLevel = accessLevel;
     }
 
-    public Employee() {
+    public Employee(String name, String surname, String birthDate, String phoneNumber, int email, AccessLevel salary, AccessLevel simple) {
     }
 
     public String getName() {
