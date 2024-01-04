@@ -25,4 +25,12 @@ public class BillUnit {
     public double getUnitPrice() {
         return unitPrice;
     }
+    @Override
+    public String toString() {
+        return "Item: \n" +
+                "book: " + book.getTitle() + "\n" +
+                "price: " + book.getSellingPrice() + "\n" +
+                "amount: " + amount + "\n" +
+                "unitPrice: " + unitPrice + "\n";
+    }
 }

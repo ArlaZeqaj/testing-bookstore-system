@@ -5,13 +5,13 @@ import java.security.SecureRandom;
 import java.util.Date;
 
 public class Bill {
-    private String billNo;
+    private final String billNo;
     private BillUnit[] books;
-    private Date purchaseDate;
+    private final Date purchaseDate;
     private final double totalCost;
 
 
-    public Bill(BillUnit[] books, Date purchaseDate, double totalCost) {
+    public Bill(BillUnit[] books) {
         this.billNo = generateRandomBillNumber(12); //generates a 9-character bill number
         this.books = books;
         this.purchaseDate = new Date();
@@ -20,10 +20,6 @@ public class Bill {
 
     public String getBillNo() {
         return billNo;
-    }
-
-    public void setBillNo(String billNo) {
-        this.billNo = billNo;
     }
 
     public BillUnit[] getBooks() {
@@ -36,10 +32,6 @@ public class Bill {
 
     public Date getPurchaseDate() {
         return purchaseDate;
-    }
-
-    public void setPurchaseDate(Date purchaseDate) {
-        this.purchaseDate = purchaseDate;
     }
 
     private double calculateTotalCost() {

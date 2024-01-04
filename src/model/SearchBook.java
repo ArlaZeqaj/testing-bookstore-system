@@ -40,18 +40,13 @@ public class SearchBook {
         if (!selectedBooks.isEmpty()) {
             for (Book selectedBook : selectedBooks) {
                 if (employee.getAccessLevel() == AccessLevel.SIMPLE || employee.getAccessLevel() == AccessLevel.ADVANCED) {
-                    System.out.println("\nBook details for " + selectedBook.getTitle() + ":");
-                    System.out.println("Book Title: " + selectedBook.getTitle());
-                    System.out.println("Author: " + selectedBook.getAuthor());
-                    System.out.println("ISBN: " + selectedBook.getISBN());
-                    System.out.println("Selling Price: " + selectedBook.getSellingPrice());
-                    System.out.println("Stock No: " + selectedBook.getStockNo());
+                    System.out.println(selectedBook);
                     System.out.print("Enter the amount of books to purchase: "); //input the amount of books needed
                     int amount = scanner.nextInt();
                     scanner.nextLine();
 
                     BillUnit billUnit = new BillUnit(selectedBook,  amount);
-                    Bill bill = new Bill(new BillUnit[]{billUnit}, null, 0.0);
+                    Bill bill = new Bill(new BillUnit[]{billUnit});
 
                     System.out.println("\nBill details:");
                     System.out.println("Bill No.: " + bill.getBillNo());
@@ -61,13 +56,9 @@ public class SearchBook {
                     System.out.println("Amount: " + billUnit.getAmount());
                     System.out.println("Price: " + billUnit.getBook().getSellingPrice());
                     System.out.println("Total Cost: " + bill.getTotalCost());
+                    System.out.println(billUnit);
 
-                    System.out.println("\nBook details for " + selectedBook.getTitle() + ":");
-                    System.out.println("Book Title: " + selectedBook.getTitle());
-                    System.out.println("Author: " + selectedBook.getAuthor());
-                    System.out.println("ISBN: " + selectedBook.getISBN());
-                    System.out.println("Selling Price: " + selectedBook.getSellingPrice());
-                    System.out.println("Stock No: " + selectedBook.getStockNo());
+                    System.out.println(selectedBook);
                 } else {
                     System.out.println("You don't have access.");
                 }
@@ -76,4 +67,5 @@ public class SearchBook {
             System.out.println("No books found matching the search criteria.");
         }
     }
+
 }
