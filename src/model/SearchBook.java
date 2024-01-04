@@ -50,7 +50,7 @@ public class SearchBook {
                     int amount = scanner.nextInt();
                     scanner.nextLine();
 
-                    BillUnit billUnit = new BillUnit(selectedBook, selectedBook.getTitle(), selectedBook.getSellingPrice(), amount);
+                    BillUnit billUnit = new BillUnit(selectedBook,  amount);
                     Bill bill = new Bill(new BillUnit[]{billUnit}, null, 0.0);
 
                     System.out.println("\nBill details:");
