@@ -13,7 +13,7 @@ public class BillUnit {
     }
 
     public Book getBook() {return book;}
-    
+
     public int getAmount() {
         return amount;
     }

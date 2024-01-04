@@ -20,7 +20,7 @@ public class Book {
     private int stockNo;
 
     public Book(String ISBN, String title, Category category, String supplierName, Year publishYear, double purchasedPrice, double originalPrice, double sellingPrice, Author author, int stockNo) {
-       if(ValidationUtil.isValid(ISBN, ValidationUtil.ISBN_13_REGEX))
+        if(ValidationUtil.isValid(ISBN, ValidationUtil.ISBN_13_REGEX))
             this.ISBN = ISBN;
         if(ValidationUtil.isValid(title, ValidationUtil.BOOK_TITLE_REGEX))
             this.title = title;
