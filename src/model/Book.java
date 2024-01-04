@@ -26,14 +26,14 @@ public class Book {
             this.title = title;
         if(ValidationUtil.isValid(category.getName(), ValidationUtil.STRING_REGEX))
             this.category = category;
-        if(ValidationUtil.isValid(supplierName, ValidationUtil.STRING_REGEX))
+        if(ValidationUtil.isValid(supplierName, ValidationUtil.BOOK_TITLE_REGEX))
             this.supplierName = supplierName;
         this.publishYear = publishYear;
         this.purchasedDate =  LocalDate.now();
         this.purchasedPrice = purchasedPrice;
         this.originalPrice = originalPrice;
         this.sellingPrice = sellingPrice;
-        if(ValidationUtil.isValid(author.toString(), ValidationUtil.STRING_REGEX))
+        if(ValidationUtil.isValid(author.toString(), ValidationUtil.BOOK_TITLE_REGEX))
             this.author = author;
         this.stockNo = stockNo;
     }

@@ -7,8 +7,3 @@ public class Librarian extends Employee {
         super(name, surname, birthDate, phoneNumber, salary, AccessLevel.SIMPLE);
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
-}
