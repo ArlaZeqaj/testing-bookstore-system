@@ -1,23 +1,22 @@
 package model;
 
 public class BillUnit {
-    private final String title;
+    private final Book book;
     private final double price;
     private final int amount;
     private final double unitPrice;
 
-    public BillUnit(String title, double price, int amount, double unitPrice) {
-        this.title = title; //check that this book title exists
-        this.price = price; //get the actual book selling price from Book
+    public BillUnit(Book book, String title, double price, int amount) {
+        this.book = book; // Assign the book object passed to the BillUnit
+        this.price = book.getSellingPrice(); //get the actual book selling price from Book
         this.amount = amount;
-        this.unitPrice = price*amount;
-    }
-    public double getPrice() {
-        return price;
+        this.unitPrice = book.getSellingPrice() * amount;
     }
 
-    public String getTitle() {
-        return title;
+    public Book getBook() {return book;}
+
+    public double getPrice() {
+        return price;
     }
 
     public int getAmount() {

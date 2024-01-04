@@ -12,4 +12,3 @@ public class Librarian extends Employee {
         return super.toString();
     }
 }
-
