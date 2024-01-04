@@ -18,7 +18,7 @@ public class Main {
         Manager manager1 = new Manager("Erion", "Molla", LocalDate.of(1998, 5, 11), "+355697900872", 65000.0);
         System.out.println(manager1);
         */
-        Employee employee = new Librarian("Erion", "Molla", LocalDate.of(1998, 5, 11), "+355697900872", 65000.0);
+        Employee employee = new Librarian("Erion", "Molla", LocalDate.of(1998, 5, 11), "+355697900872", 65000.0, "2323");
         ManagerList managerList = new ManagerList();
         managerList.printManagers();
 

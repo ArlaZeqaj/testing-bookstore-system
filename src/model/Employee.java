@@ -4,7 +4,7 @@ import model.Utility.ValidationUtil;
 
 import java.time.LocalDate;
 
-public abstract class Employee {
+public abstract class Employee implements User {
     private String name;
     private String surname;
     private LocalDate birthDate;
@@ -12,8 +12,10 @@ public abstract class Employee {
     private String email;
     private double salary;
     private AccessLevel accessLevel;
+    private String username;
+    private String password;
 
-    public Employee(String name, String surname, LocalDate birthDate, String phoneNumber, double salary, AccessLevel accessLevel) {
+    public Employee(String name, String surname, LocalDate birthDate, String phoneNumber, double salary, AccessLevel accessLevel, String password) {
         if(ValidationUtil.isValid(name, ValidationUtil.STRING_REGEX))
             this.name = name;
         if(ValidationUtil.isValid(name, ValidationUtil.STRING_REGEX))
@@ -21,12 +23,14 @@ public abstract class Employee {
         this.birthDate = birthDate;
         if (ValidationUtil.isValid(phoneNumber, ValidationUtil.PHONE_REGEX))
             this.phoneNumber = phoneNumber;
-        this.email = name.toLowerCase() + "." + surname.toLowerCase() + "@bookstore.com";
+        this.email = name.toLowerCase() + "." + surname.toLowerCase() + "@bookstore.com"; //auto-generated email
         this.salary = salary;
         this.accessLevel = accessLevel;
+        this.username = name.toLowerCase() + surname.toLowerCase(); //auto-generated username
+        this.password = password;
     }
 
-    public Employee(String name, String surname, String birthDate, String phoneNumber, int email, AccessLevel salary, AccessLevel simple) {
+    public Employee(String name, String surname, String birthDate, String phoneNumber, int email, AccessLevel salary, AccessLevel simple, String password) {
     }
 
     public String getName() {
@@ -83,6 +87,22 @@ public abstract class Employee {
 
     public void setAccessLevel(AccessLevel accessLevel) {
         this.accessLevel = accessLevel;
+    }
+    @Override
+    public String getUsername() {
+        return username;
+    }
+    @Override
+    public String getPassword() {
+        return password;
+    }
+    @Override
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    @Override
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
