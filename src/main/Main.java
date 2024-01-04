@@ -21,6 +21,10 @@ public class Main {
         Employee employee = new Librarian("Erion", "Molla", LocalDate.of(1998, 5, 11), "+355697900872", 65000.0);
         ManagerList managerList = new ManagerList();
         managerList.printManagers();
+
+        LibrarianList librarianList = new LibrarianList();
+        librarianList.printLibrarians();
+
         Scanner scanner = new Scanner(System.in);
 
         List<Book> books = new BookList().getBooks(); //get list of books from BookList
