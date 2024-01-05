@@ -102,38 +102,31 @@ public class SearchBook {
 
 
     // Inside SearchBook class
-    public void saveBillToFile(List<Book> selectedBooks, Employee employee) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter("BillNo.txt", true))) {
+    public void saveBillToFile(Bill bill) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("bills/" + bill.getBillNo() + ".txt"))) {
             writer.println("Bill details:");
+            writer.println("Bill No.: " + bill.getBillNo());
+            writer.println("Retailer name: ");
+            writer.println("Purchase date: " + bill.getPurchaseDate());
 
-            for (Book selectedBook : selectedBooks) {
-                if (employee.getAccessLevel() == AccessLevel.SIMPLE || employee.getAccessLevel() == AccessLevel.ADVANCED) {
-                    System.out.println(selectedBook);
-                    System.out.print("Enter the amount of books to purchase: "); //input the amount of books needed
+            for (BillUnit billUnit : bill.getBillUnits()) {
+                    System.out.println(billUnit.getBook());
+                    System.out.print("Enter the amount of books to purchase: "); // Input the amount of books needed
                     int amount = scanner.nextInt();
                     scanner.nextLine();
 
-                    BillUnit billUnit = new BillUnit(selectedBook, amount);
-                    Bill bill = new Bill(new BillUnit[]{billUnit});
-
-                    writer.println("Bill No.: " + bill.getBillNo());
-                    writer.println("Retailer name: ");
-                    writer.println("Purchase date: " + bill.getPurchaseDate());
+                    billUnit.setAmount(amount);
                     writer.println("Book: " + billUnit.getBook().getTitle());
                     writer.println("Amount: " + billUnit.getAmount());
                     writer.println("Price: " + billUnit.getBook().getSellingPrice());
                     writer.println("Total Cost: " + (billUnit.getAmount() * billUnit.getBook().getSellingPrice()));
                     writer.println(); // Empty line for separation
-                } else {
-                    System.out.println("You don't have access.");
-                }
             }
 
-            System.out.println("Bill details have been saved to BillNo.txt");
+            System.out.println("Bill details have been saved to bills/" + bill.getBillNo() + ".txt");
         } catch (IOException e) {
             System.err.println("Error writing the bill details to the file: " + e.getMessage());
         }
     }
-
 
 }

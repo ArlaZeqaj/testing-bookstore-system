@@ -44,11 +44,14 @@ public class Main {
         }
 
         if (!selectedBooks.isEmpty()) {
-            searchBook.saveBillToFile(selectedBooks, employee); // Saving bill details for selected books
+            for (Book selectedBook : selectedBooks) {
+                // Create a Bill object here...
+                BillUnit billUnit = new BillUnit(selectedBook, 1); // 1 is an example; replace it with the actual quantity
+                Bill bill = new Bill(new BillUnit[]{billUnit});
+                searchBook.saveBillToFile(bill);
+            }
         } else {
             System.out.println("No books found matching the search criteria.");
         }
-
-        scanner.close(); // Close the scanner when done
     }
 }
