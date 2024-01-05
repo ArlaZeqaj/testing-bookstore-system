@@ -1,0 +1,9 @@
+Bill details:
+Bill No.: Y3ARJkXqoiX6
+Retailer name: 
+Purchase date: Fri Jan 05 14:03:10 CET 2024
+Book: Ballad of the Songbirds and Snakes
+Amount: 5
+Price: 18.0
+Total Cost: 90.0
+

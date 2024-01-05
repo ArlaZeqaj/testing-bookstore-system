@@ -6,14 +6,14 @@ import java.util.Date;
 
 public class Bill {
     private final String billNo;
-    private BillUnit[] books;
+    private BillUnit[] billUnits;
     private final Date purchaseDate;
     private final double totalCost;
 
 
-    public Bill(BillUnit[] books) {
+    public Bill(BillUnit[] billUnits) {
         this.billNo = generateRandomBillNumber(12); //generates a 9-character bill number
-        this.books = books;
+        this.billUnits = billUnits;
         this.purchaseDate = new Date();
         this.totalCost = calculateTotalCost(); //calculate by adding cost all bill units
     }
@@ -22,12 +22,12 @@ public class Bill {
         return billNo;
     }
 
-    public BillUnit[] getBooks() {
-        return books;
+    public BillUnit[] getBillUnits() {
+        return billUnits;
     }
 
-    public void setBooks(BillUnit[] books) {
-        this.books = books;
+    public void setBooks(BillUnit[] billUnits) {
+        this.billUnits = billUnits;
     }
 
     public Date getPurchaseDate() {
@@ -36,7 +36,7 @@ public class Bill {
 
     private double calculateTotalCost() {
         double total = 0.0;
-        for (BillUnit unit : books) {
+        for (BillUnit unit : billUnits) {
             total += unit.getUnitPrice();
         }
         return total;
@@ -58,4 +58,6 @@ public class Bill {
     public double getTotalCost() {
         return totalCost;
     }
+
+
 }
