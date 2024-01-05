@@ -7,12 +7,13 @@ import java.io.*;
 
 public class BookList {
     private final List<Book> books;
+    private ArrayList<Book> readBooks;
     public static String filePath = "books.bin";
 
     public BookList() {
         books = new ArrayList<>();
         //initializeBooks();
-        ArrayList<Book> readBooks = readBookListFromFile(filePath);
+        readBooks = readBookListFromFile(filePath);
         printBooksFromFile(readBookListFromFile(filePath));
     }
 
@@ -27,6 +28,14 @@ public class BookList {
 
     public List<Book> getBooks() {
         return books;
+    }
+
+    public ArrayList<Book> getReadBooks() {
+        return readBooks;
+    }
+
+    public void setReadBooks(ArrayList<Book> readBooks) {
+        this.readBooks = readBooks;
     }
 
     public static void writeBookListToFile(List<Book> books, String filePath) {

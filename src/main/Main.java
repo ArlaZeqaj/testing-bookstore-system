@@ -13,7 +13,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        List<Book> books = new BookList().getBooks(); // Get list of books from BookList
+        List<Book> books = new BookList().getReadBooks(); // Get list of books from BookList
 
         SearchBook searchBook = new SearchBook(scanner); // Pass the scanner to the SearchBook
 
