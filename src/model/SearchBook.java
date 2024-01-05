@@ -103,7 +103,7 @@ public class SearchBook {
 
     // Inside SearchBook class
     public void saveBillToFile(Bill bill) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter("bills/" + bill.getBillNo() + ".txt"))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("data/bills/" + bill.getBillNo() + ".txt"))) {
             writer.println("Bill details:");
             writer.println("Bill No.: " + bill.getBillNo());
             writer.println("Retailer name: ");

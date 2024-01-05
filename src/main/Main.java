@@ -45,7 +45,7 @@ public class Main {
 
         if (!selectedBooks.isEmpty()) {
             for (Book selectedBook : selectedBooks) {
-                // Create a Bill object here...
+                //create a Bill object here
                 BillUnit billUnit = new BillUnit(selectedBook, 1); // 1 is an example; replace it with the actual quantity
                 Bill bill = new Bill(new BillUnit[]{billUnit});
                 searchBook.saveBillToFile(bill);
