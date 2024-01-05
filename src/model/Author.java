@@ -1,8 +1,9 @@
 package model;
 
 import model.Utility.ValidationUtil;
+import java.io.Serializable;
 
-public class Author {
+public class Author implements Serializable{
     private String firstName;
     private String middleName; //author middle name should end with a period ex: J K. Rowling
     private String lastName;

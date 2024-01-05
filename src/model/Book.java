@@ -4,8 +4,9 @@ import model.Utility.ValidationUtil;
 
 import java.time.Year;
 import java.time.LocalDate;
+import java.io.Serializable;
 
-public class Book {
+public class Book implements Serializable{
     private String ISBN;
     private String title;
     private Category category;

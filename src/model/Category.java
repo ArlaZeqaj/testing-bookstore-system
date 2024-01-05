@@ -2,7 +2,9 @@ package model;
 
 import model.Utility.ValidationUtil;
 
-public class Category {
+import java.io.Serializable;
+
+public class Category implements Serializable {
     private String name;
 
     public Category(String name) {
