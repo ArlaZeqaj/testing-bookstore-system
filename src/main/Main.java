@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static model.AuthorList.printAuthors;
+import static model.CategoryList.printCategories;
+
 public class Main {
     public static void main(String[] args) {
         Employee employee = new Librarian("Erion", "Molla", LocalDate.of(1998, 5, 11), "+355697900872", 65000.0, "2323");
@@ -15,15 +18,10 @@ public class Main {
         List<Book> books = new BookList().getReadBooks(); // Get list of books from BookList
         ArrayList<Librarian> librarians = new LibrarianList().getReadLibrarians();
         ArrayList<Manager> managers = new ManagerList().getReadManagers();
-/*
-        Author author = new Author();
-        List<Author> allAuthors = author.getAuthorList();
-
-        // Print the authors in the list
-        for (Author author : allAuthors) {
-            System.out.println("Author: " + author.getFirstName() + " " + author.getMiddleName() + " " + author.getLastName());
-        }
-        */
+        ArrayList<Author> authors = (ArrayList<Author>) new AuthorList().getReadAuthors();
+        printAuthors(authors);
+        ArrayList<Category> categories = (ArrayList<Category>) new CategoryList().getReadCategories();
+        printCategories(categories);
 
         SearchBook searchBook = new SearchBook(scanner); // Pass the scanner to the SearchBook
 

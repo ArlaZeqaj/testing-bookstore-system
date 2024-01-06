@@ -1,17 +1,21 @@
 package model;
 
+import model.Utility.FileReaderUtil;
+import model.Utility.FileWriterUtil;
 import model.Utility.ValidationUtil;
 
-import java.io.Serial;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Author implements Serializable{
+    @Serial
+    private static final long serialVersionUID = 538258161104464548L;
     private String firstName;
     private String middleName; //author middle name should end with a period ex: J K. Rowling
     private String lastName;
-    //private AuthorList authorList;
+    //ArrayList<Author> authors = new ArrayList<>();
+    public String filename = "data/authors.txt";
+    private AuthorList authorList = new AuthorList();
 
     public Author(String firstName, String middleName, String lastName) {
         if(ValidationUtil.isValid(firstName, ValidationUtil.STRING_REGEX))
@@ -19,11 +23,11 @@ public class Author implements Serializable{
         this.middleName = middleName;
         if(ValidationUtil.isValid(lastName, ValidationUtil.STRING_REGEX))
             this.lastName = lastName;
-        System.out.println(this);
-        //authorList.add(this);
-    }
-    public Author(){
-
+        if (!authorList.hasDuplicate(this)) {
+            authorList.addAuthor(this);
+        } else {
+            System.out.println("Author already exists: " + this);
+        }
     }
 
     public String getFirstName() {
@@ -51,10 +55,47 @@ public class Author implements Serializable{
         if(ValidationUtil.isValid(lastName, ValidationUtil.STRING_REGEX))
             this.lastName = lastName;
     }
+/*
+    public ArrayList<Author> getAuthorList() {
+        return authorList;
+    }
 
+    public void setAuthorList(ArrayList<Author> authorList) {
+        this.authorList = authorList;
+    }
+
+    public void add(Author author) {
+        authorList.add(author);
+    }
+ */
     @Override
     public String toString() {
         return firstName + " " + middleName  + lastName;
+    }
+    private void saveAuthorToFile() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            boolean authorExists = false;
+            while ((line = reader.readLine()) != null) {
+                if (line.equals(firstName)) {
+                    authorExists = true;
+                    break;
+                }
+            }
+            if (!authorExists) {
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
+                    writer.write(firstName + " " + middleName + lastName);
+                    writer.newLine();
+                    System.out.println("Author saved successfully.");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Author already exists.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

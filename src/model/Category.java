@@ -9,11 +9,16 @@ public class Category implements Serializable {
     private static final long serialVersionUID = 7762027686636636721L;
     private String name;
     public static String filename = "data/categories.txt";
+    private CategoryList categoryList = new CategoryList();
 
     public Category(String name) {
         if(ValidationUtil.isValid(name, ValidationUtil.BOOK_TITLE_REGEX))
             this.name = name;
-        saveCategoryToFile();
+        if (!categoryList.hasDuplicate(this)) {
+            categoryList.addCategory(this);
+        } else {
+            System.out.println("Category already exists: " + this);
+        }
     }
 
     public String getName() {
@@ -23,6 +28,14 @@ public class Category implements Serializable {
     public void setName(String name) {
         if(ValidationUtil.isValid(name, ValidationUtil.STRING_REGEX))
             this.name = name;
+    }
+
+    public CategoryList getCategoryList() {
+        return categoryList;
+    }
+
+    public void setCategoryList(CategoryList categoryList) {
+        this.categoryList = categoryList;
     }
 
     @Override
@@ -40,7 +53,6 @@ public class Category implements Serializable {
                     break;
                 }
             }
-
             if (!categoryExists) {
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
                     writer.write(name);
