@@ -13,6 +13,17 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         List<Book> books = new BookList().getReadBooks(); // Get list of books from BookList
+        ArrayList<Librarian> librarians = new LibrarianList().getReadLibrarians();
+        ArrayList<Manager> managers = new ManagerList().getReadManagers();
+/*
+        Author author = new Author();
+        List<Author> allAuthors = author.getAuthorList();
+
+        // Print the authors in the list
+        for (Author author : allAuthors) {
+            System.out.println("Author: " + author.getFirstName() + " " + author.getMiddleName() + " " + author.getLastName());
+        }
+        */
 
         SearchBook searchBook = new SearchBook(scanner); // Pass the scanner to the SearchBook
 

@@ -2,9 +2,10 @@ package model;
 
 import model.Utility.ValidationUtil;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public abstract class Employee implements User {
+public abstract class Employee implements User, Serializable {
     private String name;
     private String surname;
     private LocalDate birthDate;
