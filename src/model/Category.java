@@ -29,13 +29,32 @@ public class Category implements Serializable {
     public String toString() {
         return name;
     }
+
     private void saveCategoryToFile() {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
-                writer.write(name);
-                writer.newLine();
-                System.out.println("Category saved successfully.");
-            } catch (IOException e) {
-                e.printStackTrace();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            boolean categoryExists = false;
+            while ((line = reader.readLine()) != null) {
+                if (line.equals(name)) {
+                    categoryExists = true;
+                    break;
+                }
             }
+
+            if (!categoryExists) {
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
+                    writer.write(name);
+                    writer.newLine();
+                    System.out.println("Category saved successfully.");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Category already exists.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }
