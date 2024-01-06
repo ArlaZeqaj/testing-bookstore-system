@@ -1,12 +1,17 @@
 package model;
 
 import model.Utility.ValidationUtil;
+
+import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Author implements Serializable{
     private String firstName;
     private String middleName; //author middle name should end with a period ex: J K. Rowling
     private String lastName;
+    //private AuthorList authorList;
 
     public Author(String firstName, String middleName, String lastName) {
         if(ValidationUtil.isValid(firstName, ValidationUtil.STRING_REGEX))
@@ -14,6 +19,11 @@ public class Author implements Serializable{
         this.middleName = middleName;
         if(ValidationUtil.isValid(lastName, ValidationUtil.STRING_REGEX))
             this.lastName = lastName;
+        System.out.println(this);
+        //authorList.add(this);
+    }
+    public Author(){
+
     }
 
     public String getFirstName() {
