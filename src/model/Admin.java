@@ -1,14 +1,15 @@
 package model;
 
-public class Admin implements User {
+import java.io.Serializable;
+
+public class Admin implements User, Serializable {
     private String username;
     private String password;
-
-    // Constructor
     public Admin(String username, String password) {
         this.username = username;
         this.password = password;
     }
+    public static String filePath = "data/binaryFiles/admins.bin";
     @Override
     public String getUsername() {
         return username;

@@ -1,11 +1,8 @@
 package model;
 
-import model.Utility.FileReaderUtil;
-import model.Utility.FileWriterUtil;
 import model.Utility.ValidationUtil;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class Author implements Serializable{
     @Serial
