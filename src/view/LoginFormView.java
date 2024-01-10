@@ -10,12 +10,20 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class LoginFormView extends Application {
-    private final LoginFormController controller = new LoginFormController();
+import javax.swing.text.View;
+
+public class LoginFormView extends Application{
+    //private final LoginFormController controller = new LoginFormController(primaryStage);
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Login Form");
-
+        primaryStage.setTitle("Bookstore Interactive System");
+        LoginFormController controller = new LoginFormController(primaryStage);
+        Scene scene = getLoginScene(controller);
+        scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+    public Scene getLoginScene(LoginFormController controller){
         Text titleText = new Text("Bookstore Interactive System");
         titleText.setFont(Font.font("Arial", FontWeight.BOLD, 16));
 
@@ -50,11 +58,7 @@ public class LoginFormView extends Application {
             String password = passwordField.getText();
             controller.handleLogin(username, password, messageLabel);
         });
-
-        Scene scene = new Scene(grid, 730, 530);
-        scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
-        primaryStage.setScene(scene);
-
-        primaryStage.show();
+        return new Scene(grid, 730, 530);
     }
+
 }
