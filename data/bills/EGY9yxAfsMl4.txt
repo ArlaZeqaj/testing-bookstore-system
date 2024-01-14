@@ -1,9 +1,0 @@
-Bill details:
-Bill No.: EGY9yxAfsMl4
-Retailer name: 
-Purchase date: Fri Jan 05 14:38:15 CET 2024
-Book: The Shadow of the Wind
-Amount: 3
-Price: 12.0
-Total Cost: 36.0
-

@@ -1,9 +1,0 @@
-Bill details:
-Bill No.: RruS3KU1jnPL
-Retailer name: 
-Purchase date: Fri Jan 05 14:42:58 CET 2024
-Book: The Shadow of the Wind
-Amount: 4
-Price: 12.0
-Total Cost: 48.0
-

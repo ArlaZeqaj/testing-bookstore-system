@@ -1,9 +1,0 @@
-Bill details:
-Bill No.: XQpUmUzwAf9K
-Retailer name: 
-Purchase date: Fri Jan 05 14:34:54 CET 2024
-Book: Ballad of the Songbirds and Snakes
-Amount: 5
-Price: 18.0
-Total Cost: 90.0
-

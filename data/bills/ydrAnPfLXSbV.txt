@@ -1,9 +1,0 @@
-Bill details:
-Bill No.: ydrAnPfLXSbV
-Retailer name: 
-Purchase date: Fri Jan 05 14:34:19 CET 2024
-Book: The Secret History
-Amount: 5
-Price: 16.5
-Total Cost: 82.5
-
