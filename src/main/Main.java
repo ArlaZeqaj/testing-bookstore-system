@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
-
+//hbhgvcfgcfdcgf
 public class Main extends Application {
     public static void main(String[] args) {
         Application.launch(LoginFormView.class, args);
@@ -24,8 +23,6 @@ public class Main extends Application {
         //print authors
         AuthorList authorList = new AuthorList();
         authorList.printAuthors();
-
-
 
         //initialize scanner for user input
         Scanner scanner = new Scanner(System.in);
