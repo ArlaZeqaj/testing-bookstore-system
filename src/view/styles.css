@@ -1,0 +1,87 @@
+.root {
+    -fx-background-color: #f0f0f0;
+}
+
+#loginForm {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 1px;
+    -fx-border-radius: 9px;
+    -fx-padding: 20px;
+}
+
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333;
+}
+
+.text-field, .password-field {
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 2, 2);
+}
+
+.button {
+    -fx-font-size: 16px;
+    -fx-background-color: #6C63FF; /* Purple */
+    -fx-text-fill: white;
+    -fx-pref-width: 120px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 2, 2);
+}
+
+.message-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #ff0000;
+}
+#tableView {
+    -fx-control-inner-background: #ffffff;
+    -fx-table-cell-border-color: #dddddd;
+    -fx-table-header-border-color: #dddddd;
+    -fx-padding: 10px;
+}
+
+#tableView .column-header {
+    -fx-text-fill: #333333;
+    -fx-background-color: #f0f0f0;
+}
+
+#tableView .table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-table-cell-border-color: #dddddd;
+    -fx-font-size: 15px;
+}
+
+#tableView .table-row-cell:odd {
+    -fx-background-color: #f0f0f0;
+}
+
+#tableView .table-row-cell:selected {
+    -fx-background-color: #6C63FF; /*purple*/
+    -fx-text-fill: white;
+}
+
+.profile-container {
+    -fx-background-color: #f0f0f0;
+    -fx-border-radius: 10px;
+}
+
+.profile-card {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);
+}
+
+.text-header {
+    -fx-font-family: "Trebuchet MS";
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+
+#custom-alert {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #6C63FF;
+    -fx-border-radius: 10px;
+}
+
+
+
