@@ -1,0 +1,11 @@
+admin: arlazeqaj 00000
+admin: estelamele 12345
+
+manager: erionmolla 4444 
+manager: megibardhi 5555 
+manager: prishiladedaj 2211 
+
+librarian: saramolla 1234
+librarian: lisabardhi 0000
+librarian: rikudedaj 1111
+librarian: simonamarku password
